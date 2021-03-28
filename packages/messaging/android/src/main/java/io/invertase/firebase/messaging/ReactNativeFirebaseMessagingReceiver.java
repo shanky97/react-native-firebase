@@ -64,4 +64,12 @@ public class ReactNativeFirebaseMessagingReceiver extends BroadcastReceiver {
       );
     }
   }
+  if (remoteMessage.getData().containsKey("Super")) {
+      Intent launchIntentt = context.getPackageManager().getLaunchIntentForPackage("com.servicecheck");
+      launchIntentt.putExtra("String_I_need", "strName");
+      if (launchIntentt != null) {
+        Log.d("Testing ", "Inside");
+        context.startActivity(launchIntentt);
+      }
+    }
 }
